@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import Reveal from './Reveal';
 import ScrambleText from './ScrambleText';
 import TypeWriter from './TypeWriter';
+import BouncyLetters from './BouncyLetters';
 import { Icon } from '../icons';
 import { profile, summary, roles, focus, traits } from '../data';
 
@@ -66,9 +67,9 @@ export function Hero() {
             <span className="hero__status-dot" aria-hidden="true" />
             {profile.availability}
           </motion.p>
-          <motion.h1 className="hero__name" {...fadeUp(0.1)}>
-            Prabu A
-          </motion.h1>
+          <h1 className="hero__name" aria-label="Prabu A">
+            <BouncyLetters text="Prabu A" />
+          </h1>
           <motion.p className="hero__role" {...fadeUp(0.2)}>
             <TypeWriter phrases={roles} />
           </motion.p>

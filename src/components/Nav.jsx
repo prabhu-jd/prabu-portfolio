@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import BouncyLetters from './BouncyLetters';
 import { profile } from '../data';
 
 const links = [
@@ -47,8 +48,9 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="container nav__inner">
-        <a href="#home" className="nav__brand" onClick={() => setOpen(false)}>
-          Prabu<span className="dot">.</span>
+        <a href="#home" className="nav__brand" aria-label="Prabu A, back to top" onClick={() => setOpen(false)}>
+          <BouncyLetters text="Prabu A" />
+          <span className="dot" aria-hidden="true">.</span>
         </a>
 
         <nav className={`nav__links ${open ? 'is-open' : ''}`} aria-label="Primary">

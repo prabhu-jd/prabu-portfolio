@@ -152,11 +152,58 @@ ol {
 }
 
 .nav__brand {
+  display: inline-flex;
+  align-items: baseline;
   font-size: 30px;
   font-weight: 600;
   letter-spacing: 0.5px;
   color: var(--black);
   line-height: 1;
+  white-space: nowrap;
+}
+
+/* Bouncy letters: drop in on load, spring up and tilt under the mouse */
+.bl {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.bl__l {
+  display: inline-block;
+}
+
+.bl__space {
+  display: inline-block;
+  width: 0.28em;
+}
+
+.bl__in {
+  display: inline-block;
+  transform-origin: 16% 86%;
+  transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+}
+
+.bl__l:hover .bl__in {
+  transform: translateY(-0.14em) rotate(var(--tilt));
+  transition-duration: 0.42s, 0.2s;
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1), ease;
+  color: var(--accent);
+}
+
+/* "backwards" so the drop's end state hands control back to the hover transform */
+.bl--drop .bl__in {
+  animation: bl-drop 0.7s cubic-bezier(0.34, 1.4, 0.64, 1) var(--drop-delay) backwards;
+}
+
+@keyframes bl-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-108%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .nav__brand .dot {
@@ -2039,6 +2086,12 @@ ol {
 
   .marquee__item[aria-hidden='true'] {
     display: none;
+  }
+
+  .bl__in,
+  .bl__l:hover .bl__in {
+    animation: none;
+    transform: none;
   }
 
   .flow__nodes li::after,
