@@ -2,7 +2,8 @@ import Nav from './components/Nav';
 import TechMarquee from './components/TechMarquee';
 import Experience from './components/ExperienceTimeline';
 import SkillsSection from './components/SkillsSection';
-import { Hero, About, Projects, Certifications, Contact, Footer } from './components/Sections';
+import { Projects, Certifications } from './components/Showcase';
+import { Hero, About, Contact, Footer } from './components/Sections';
 
 export default function App() {
   return (

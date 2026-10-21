@@ -6,6 +6,14 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/prabhu324/',
 };
 
+// Phrases the hero types out under the name.
+export const roles = [
+  'Lead Java Full Stack Developer.',
+  'Spring Boot Microservices Engineer.',
+  'AWS & GCP Certified Developer.',
+  'Angular Front-End Developer.',
+];
+
 export const stats = [
   { value: '10+', label: 'Years of experience' },
   { value: '4', label: 'Professional certifications' },
@@ -79,48 +87,97 @@ export const experience = [
   },
 ];
 
+// tags: [icon, label]; flow: the system diagram drawn on the card's right side.
 export const projects = [
   {
     name: 'RxLink',
     client: 'CVS Health',
     domain: 'Healthcare · PBM',
-    text: 'Enterprise integration platform connecting external pharmacies, adjudication systems and third-party vendors for real-time pharmacy transactions over TCP, REST and SOAP.',
-    tags: ['Java 21', 'Spring Boot', 'GKE', 'Argo CD', 'MongoDB'],
+    period: '2026 – Present',
+    text: 'Enterprise integration platform connecting external pharmacies, adjudication systems and third-party vendors.',
+    points: [
+      '6+ Java 21 Spring Boot microservices for real-time pharmacy transactions.',
+      'TCP, REST and SOAP integrations with 10+ external systems.',
+      'GitOps deployments to GKE through Argo CD, monitored in Grafana.',
+    ],
+    tags: [['java', 'Java 21'], ['springboot', 'Spring Boot'], ['angular', 'Angular'], ['mongodb', 'MongoDB'], ['gcp', 'GKE'], ['argo', 'Argo CD'], ['grafana', 'Grafana']],
+    flow: ['Pharmacies', 'RxLink Gateway', 'Adjudication & Vendors'],
+    protocols: ['TCP', 'REST', 'SOAP'],
   },
   {
     name: 'Payment360',
     client: 'Fiserv',
     domain: 'FinTech · Payments',
-    text: 'Payment hub that lets bank and credit-union customers pay bills, control cards and see all their financial obligations in one place.',
-    tags: ['Spring Boot 3', 'Kafka', 'Resilience4j', 'AWS EKS', 'Terraform'],
+    period: '2023 – 2025',
+    text: 'Payment hub that lets bank and credit-union customers pay bills, control cards and manage obligations in one place.',
+    points: [
+      'Led a 4-engineer team delivering 8+ payment microservices.',
+      '99.9% availability with Resilience4j circuit breakers and retries.',
+      '100K+ Kafka payment events a day with zero message loss.',
+    ],
+    tags: [['java', 'Java 17'], ['springboot', 'Spring Boot 3'], ['kafka', 'Kafka'], ['resilience', 'Resilience4j'], ['eks', 'AWS EKS'], ['terraform', 'Terraform']],
+    flow: ['Bank Apps', 'Payment APIs', 'Kafka Events', 'Billers & Cards'],
+    protocols: ['REST', 'Kafka', 'AWS EKS'],
   },
   {
     name: 'Dialer – CACS Integration',
     client: 'Standard Chartered',
     domain: 'Banking · Integration',
-    text: 'Reliable upstream and downstream file exchange with the collections system using Solace topics and queues and clustered scheduled jobs.',
-    tags: ['Solace', 'Quartz', 'ShedLock', 'Oracle'],
+    period: '2021',
+    text: 'Reliable upstream and downstream file exchange between the dialer and the collections system.',
+    points: [
+      'Automated 50+ daily file exchanges with CACS.',
+      'Zero duplicate runs across nodes with ShedLock-guarded Quartz jobs.',
+      'Solace topics and queues for request-response messaging.',
+    ],
+    tags: [['springboot', 'Spring Boot'], ['queue', 'Solace'], ['oracle', 'Oracle'], ['gitlab', 'GitLab']],
+    flow: ['Dialer', 'Solace Queues', 'CACS'],
+    protocols: ['Solace', 'Quartz', 'ShedLock'],
   },
   {
     name: 'Onevasco',
     client: 'VFS Tasheel',
-    domain: 'Government services',
-    text: 'Turned a static service website into a dynamic online visa application platform with back-office workflows for the business team.',
-    tags: ['Spring Boot', 'Spring Security', 'Angular 8', 'AWS'],
+    domain: 'Government Services',
+    period: '2019 – 2020',
+    text: 'Turned a static service website into a dynamic online visa application platform.',
+    points: [
+      'Moved 10+ visa services online.',
+      'Secured REST APIs with Spring Security.',
+      'Back-office workflows for the business team, hosted on AWS.',
+    ],
+    tags: [['java', 'Java 11'], ['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL'], ['aws', 'AWS']],
+    flow: ['Applicants', 'Angular UI', 'Spring Boot API', 'MySQL'],
+    protocols: ['REST', 'Spring Security', 'AWS'],
   },
   {
     name: 'Voice Survey',
     client: 'DEWA',
-    domain: 'Utilities · CX',
+    domain: 'Utilities · Customer Experience',
+    period: '2020 – 2021',
     text: 'Voice-interactive feedback flow that moves callers into a voice-assisted survey right after their call.',
-    tags: ['REST APIs', 'Angular 8', 'MySQL'],
+    points: [
+      'Post-call survey prompt with voice-triggered navigation.',
+      'REST APIs and Angular 8 screens for survey handling.',
+      "Serving DEWA's 1M+ customer base.",
+    ],
+    tags: [['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL']],
+    flow: ['Call Ends', 'Survey Prompt', 'Voice Survey', 'Feedback'],
+    protocols: ['REST', 'Angular'],
   },
   {
     name: 'RippleCare',
     client: 'Stryker',
-    domain: 'Healthcare · Patient engagement',
-    text: 'Automated coaching, education and communication that helps patients follow pre- and post-surgical care plans.',
-    tags: ['Spring MVC', 'Thymeleaf', 'JSF'],
+    domain: 'Healthcare · Patient Engagement',
+    period: '2017 – 2018',
+    text: 'Automated coaching, education and communication for pre- and post-surgical care plans.',
+    points: [
+      'Delivered 5+ care-plan modules.',
+      'Turned functional requirements into web components.',
+      'Peer code reviews and collaborative testing.',
+    ],
+    tags: [['spring', 'Spring MVC'], ['thymeleaf', 'Thymeleaf'], ['javascript', 'jQuery'], ['oracle', 'SQL']],
+    flow: ['Care Plan', 'Coaching Engine', 'Patients'],
+    protocols: ['Spring MVC', 'JSF'],
   },
 ];
 
@@ -205,8 +262,44 @@ export const workStack = [
 ];
 
 export const certifications = [
-  { name: 'AWS Certified Solutions Architect – Associate', issuer: 'Amazon Web Services', mark: 'AWS' },
-  { name: 'Professional Cloud Developer', issuer: 'Google Cloud', mark: 'GCP' },
-  { name: 'Claude Certified Developer – Foundations', issuer: 'Anthropic', mark: 'AI' },
-  { name: 'Oracle Certified Associate, Java SE 8 Programmer', issuer: 'Oracle', mark: 'OCA' },
+  {
+    name: 'AWS Certified Solutions Architect – Associate',
+    short: 'AWS Solutions Architect',
+    issuer: 'Amazon Web Services',
+    icon: 'aws',
+    level: 'Associate',
+    text: 'Designing secure, resilient, high-performing and cost-optimized architectures on AWS.',
+    points: ['Compute, storage, networking and databases on AWS', 'High availability and fault-tolerant design', 'Security, IAM and cost optimization'],
+    tags: ['EKS', 'EC2', 'Lambda', 'S3', 'DynamoDB', 'IAM'],
+  },
+  {
+    name: 'Google Cloud Professional Cloud Developer',
+    short: 'GCP Cloud Developer',
+    issuer: 'Google Cloud',
+    icon: 'gcp',
+    level: 'Professional',
+    text: 'Building scalable, highly available cloud-native applications with Google-recommended practices.',
+    points: ['Cloud-native application design', 'Deploying to GKE and managed services', 'Monitoring, logging and performance'],
+    tags: ['GKE', 'Artifact Registry', 'Cloud Logging', 'Cloud Monitoring', 'IAM'],
+  },
+  {
+    name: 'Claude Certified Developer – Foundations',
+    short: 'Claude Certified Developer',
+    issuer: 'Anthropic',
+    icon: 'claude',
+    level: 'Foundations',
+    text: "Building applications on Anthropic's Claude models and API.",
+    points: ['Prompting and working with Claude', 'Integrating the Claude API into applications', 'Responsible use of AI in software'],
+    tags: ['Claude API', 'Prompt Design', 'AI Integration'],
+  },
+  {
+    name: 'Oracle Certified Associate, Java SE 8 Programmer',
+    short: 'Oracle Certified Java SE 8',
+    issuer: 'Oracle',
+    icon: 'oracle',
+    level: 'Associate',
+    text: 'Core Java SE 8 programming fundamentals.',
+    points: ['Object-oriented design in Java', 'Data types, operators and control flow', 'Exceptions and core Java APIs'],
+    tags: ['Java SE 8', 'OOP', 'Core APIs'],
+  },
 ];

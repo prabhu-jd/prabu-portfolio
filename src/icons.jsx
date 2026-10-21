@@ -35,6 +35,7 @@ import {
   siPostman,
   siGit,
   siJira,
+  siClaude,
 } from 'simple-icons';
 
 // Generic glyphs (24x24) for tools that have no brand icon.
@@ -90,6 +91,7 @@ export const icons = {
   postman: brand(siPostman),
   git: brand(siGit),
   jira: brand(siJira),
+  claude: brand(siClaude),
 };
 
 export function Icon({ name, size = 20, color, className }) {

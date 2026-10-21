@@ -2,7 +2,8 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
 import ScrambleText from './ScrambleText';
-import { profile, stats, summary, projects, certifications } from '../data';
+import TypeWriter from './TypeWriter';
+import { profile, stats, summary, roles } from '../data';
 
 const Scene3D = lazy(() => import('./Scene3D'));
 
@@ -65,7 +66,7 @@ export function Hero() {
             Prabu A
           </motion.h1>
           <motion.p className="hero__role" {...fadeUp(0.2)}>
-            Lead Java Full Stack Developer<span className="dot">.</span>
+            <TypeWriter phrases={roles} />
           </motion.p>
           <motion.p className="hero__tagline" {...fadeUp(0.3)}>
             {profile.tagline}
@@ -160,61 +161,6 @@ export function About() {
             </Reveal>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function Projects() {
-  return (
-    <section className="section section--light" id="projects">
-      <div className="container">
-        <SectionHead watermark="PROJECTS" title="My Projects" center />
-        <div className="projects">
-          {projects.map((p, i) => (
-            <Reveal key={p.name} delay={(i % 3) * 0.08} className="card project">
-              <div className="project__top">
-                <span className="project__index">{String(i + 1).padStart(2, '0')}</span>
-                <span className="project__domain">{p.domain}</span>
-              </div>
-              <h3 className="project__name">{p.name}</h3>
-              <p className="project__client">{p.client}</p>
-              <p className="project__text">{p.text}</p>
-              <ul className="chips">
-                {p.tags.map((t) => (
-                  <li key={t} className="chip">{t}</li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function Certifications() {
-  return (
-    <section className="section section--light" id="certifications">
-      <div className="container">
-        <SectionHead watermark="CERTIFIED" title="Certifications" center />
-        <div className="certs">
-          {certifications.map((c, i) => (
-            <Reveal key={c.name} delay={i * 0.08} className="card cert">
-              <span className="cert__mark">{c.mark}</span>
-              <div>
-                <h3 className="cert__name">{c.name}</h3>
-                <p className="cert__issuer">{c.issuer}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal className="education">
-          <span className="education__label">Education</span>
-          <p className="education__text">
-            <strong>B.E., Computer Science and Engineering</strong> · Imayam College of Engineering, Trichy (Anna University) · 2015
-          </p>
-        </Reveal>
       </div>
     </section>
   );
