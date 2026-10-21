@@ -1,5 +1,6 @@
 import Nav from './components/Nav';
-import { Hero, About, Experience, Projects, Skills, Certifications, Contact, Footer } from './components/Sections';
+import Experience from './components/ExperienceTimeline';
+import { Hero, About, Projects, Skills, Certifications, Contact, Footer } from './components/Sections';
 
 export default function App() {
   return (

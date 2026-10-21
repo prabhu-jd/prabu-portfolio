@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
-import { profile, stats, summary, experience, projects, skills, certifications } from '../data';
+import { profile, stats, summary, projects, skills, certifications } from '../data';
 
 const Scene3D = lazy(() => import('./Scene3D'));
 
@@ -134,49 +134,6 @@ export function About() {
             ))}
           </Reveal>
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function Experience() {
-  return (
-    <section className="section section--alt" id="experience">
-      <div className="container">
-        <SectionHead
-          eyebrow="Experience"
-          title="A decade across healthcare, banking and payments"
-          intro="From patient engagement to pharmacy claims and card payments: systems where reliability is the product."
-        />
-        <ol className="timeline">
-          {experience.map((job, i) => (
-            <Reveal as="li" key={job.company + job.period} delay={i * 0.05} className="timeline__item">
-              <span className="timeline__dot" aria-hidden="true" />
-              <article className="card job">
-                <header className="job__head">
-                  <div>
-                    <h3 className="job__role">{job.role}</h3>
-                    <p className="job__company">{job.company}</p>
-                  </div>
-                  <div className="job__meta">
-                    <span className="job__period">{job.period}</span>
-                    <span className="job__client">{job.client}</span>
-                  </div>
-                </header>
-                <ul className="job__points">
-                  {job.points.map((p) => (
-                    <li key={p}>{p}</li>
-                  ))}
-                </ul>
-                <ul className="chips">
-                  {job.stack.map((t) => (
-                    <li key={t} className="chip">{t}</li>
-                  ))}
-                </ul>
-              </article>
-            </Reveal>
-          ))}
-        </ol>
       </div>
     </section>
   );

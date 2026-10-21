@@ -401,6 +401,7 @@ ol {
 .section {
   padding: 110px 0;
   position: relative;
+  overflow-x: clip;
 }
 
 .section--alt {
@@ -506,102 +507,208 @@ ol {
   color: var(--muted);
 }
 
-/* Experience timeline */
-.timeline {
+/* Experience: centered alternating timeline */
+.section__head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.xp {
   position: relative;
   display: grid;
-  gap: 28px;
-  padding-left: 36px;
+  gap: 56px;
+  padding: 8px 0;
 }
 
-.timeline::before {
+.xp__line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.xp__line-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--gold), var(--teal));
+  transform-origin: top;
+}
+
+.xp__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+}
+
+.xp__item--left .xp__card {
+  grid-column: 1;
+}
+
+.xp__item--right .xp__card {
+  grid-column: 3;
+}
+
+.xp__dot {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--bg-alt);
+  box-shadow: 0 0 0 4px rgba(201, 164, 92, 0.25), 0 0 18px rgba(201, 164, 92, 0.6);
+  z-index: 1;
+}
+
+.xp__card {
+  position: relative;
+  padding: 26px 28px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.xp__card:hover {
+  border-color: rgba(201, 164, 92, 0.5);
+  box-shadow: 0 24px 50px -20px rgba(201, 164, 92, 0.18);
+  transform: translateY(-3px);
+}
+
+/* Small notch pointing at the timeline */
+.xp__card::after {
   content: '';
   position: absolute;
-  left: 9px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: linear-gradient(var(--gold), rgba(201, 164, 92, 0.05));
-}
-
-.timeline__item {
-  position: relative;
-}
-
-.timeline__dot {
-  position: absolute;
-  left: -33px;
   top: 30px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--gold);
-  box-shadow: 0 0 0 5px rgba(201, 164, 92, 0.12);
+  width: 12px;
+  height: 12px;
+  background: #151c2c;
+  border: 1px solid var(--border);
+  transform: rotate(45deg);
 }
 
-.job {
-  padding: 28px 30px;
+.xp__item--left .xp__card::after {
+  right: -7px;
+  border-left: 0;
+  border-bottom: 0;
 }
 
-.job__head {
+.xp__item--right .xp__card::after {
+  left: -7px;
+  border-right: 0;
+  border-top: 0;
+}
+
+.xp__head {
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.xp__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  border: 1px solid rgba(201, 164, 92, 0.35);
+  color: var(--gold);
+}
+
+.xp__role {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.xp__company {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.xp__points {
+  display: grid;
+  gap: 8px;
   margin-bottom: 18px;
 }
 
-.job__role {
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-}
-
-.job__company {
-  margin-top: 4px;
-  color: var(--gold);
-  font-weight: 500;
-}
-
-.job__meta {
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.job__period {
-  display: block;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  color: var(--text);
-}
-
-.job__client {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.88rem;
-  color: var(--teal);
-}
-
-.job__points {
-  display: grid;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.job__points li {
+.xp__points li {
   position: relative;
-  padding-left: 22px;
+  padding-left: 20px;
   color: #c9d1de;
+  font-size: 0.95rem;
 }
 
-.job__points li::before {
+.xp__points li::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0.72em;
-  width: 10px;
+  width: 9px;
   height: 1px;
   background: var(--gold);
+}
+
+.xp__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.xp__stack li {
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: rgba(63, 184, 175, 0.08);
+  border: 1px solid rgba(63, 184, 175, 0.22);
+  color: #bfe9e5;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+}
+
+.xp__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.xp__pill {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.xp__pill--date {
+  color: var(--gold);
+  border: 1px solid rgba(201, 164, 92, 0.55);
+  background: rgba(201, 164, 92, 0.08);
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+.xp__pill--client {
+  color: #0d1424;
+  background: linear-gradient(120deg, var(--teal), #6fd3cb);
 }
 
 /* Projects */
@@ -862,6 +969,40 @@ ol {
     display: none;
   }
 
+  /* Timeline collapses to one column with the line on the left */
+  .xp {
+    gap: 32px;
+  }
+
+  .xp__line {
+    left: 9px;
+    transform: none;
+  }
+
+  .xp__item {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .xp__item--left .xp__card,
+  .xp__item--right .xp__card {
+    grid-column: 2;
+  }
+
+  .xp__dot {
+    left: 10px;
+    top: 26px;
+  }
+
+  .xp__item--left .xp__card::after,
+  .xp__item--right .xp__card::after {
+    left: -7px;
+    right: auto;
+    top: 26px;
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-top: 0;
+  }
+
   .stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -908,31 +1049,12 @@ ol {
     font-size: 1.9rem;
   }
 
-  .timeline {
-    padding-left: 24px;
+  .xp__card {
+    padding: 22px 18px 18px;
   }
 
-  .timeline::before {
-    left: 5px;
-  }
-
-  .timeline__dot {
-    left: -25px;
-    width: 11px;
-    height: 11px;
-  }
-
-  .job {
-    padding: 22px 20px;
-  }
-
-  .job__head {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .job__meta {
-    text-align: left;
+  .xp__role {
+    font-size: 1.12rem;
   }
 
   .contact__card {
