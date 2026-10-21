@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
 import ScrambleText from './ScrambleText';
-import { profile, stats, summary, projects, skills, certifications } from '../data';
+import { profile, stats, summary, projects, certifications } from '../data';
 
 const Scene3D = lazy(() => import('./Scene3D'));
 
@@ -167,7 +167,7 @@ export function About() {
 
 export function Projects() {
   return (
-    <section className="section" id="projects">
+    <section className="section section--light" id="projects">
       <div className="container">
         <SectionHead watermark="PROJECTS" title="My Projects" center />
         <div className="projects">
@@ -193,35 +193,9 @@ export function Projects() {
   );
 }
 
-export function Skills() {
-  return (
-    <section className="section section--light" id="skills">
-      <div className="container">
-        <SectionHead
-          watermark="SKILLS"
-          title="Skills."
-          intro="The stack I use to design, build and run cloud-native systems in production."
-        />
-        <div className="skills">
-          {skills.map((s, i) => (
-            <Reveal key={s.group} delay={(i % 4) * 0.06} className="card skill">
-              <h3 className="skill__group">{s.group}</h3>
-              <ul className="chips">
-                {s.items.map((t) => (
-                  <li key={t} className="chip">{t}</li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function Certifications() {
   return (
-    <section className="section" id="certifications">
+    <section className="section section--light" id="certifications">
       <div className="container">
         <SectionHead watermark="CERTIFIED" title="Certifications" center />
         <div className="certs">

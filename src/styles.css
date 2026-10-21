@@ -869,33 +869,166 @@ ol {
   flex: 1;
 }
 
-/* Skills */
-.skills {
+/* Tech logo marquee under the hero */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 0;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  /* Fade the logos out at both edges */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 28px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.marquee__item:hover {
+  color: var(--text);
+}
+
+/* Skills: label column + content column, category pills highlight the work stack */
+.sk {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 44px 48px;
+  align-items: start;
+}
+
+.sk__lead {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sk__script {
+  margin-top: 4px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.sk__text {
+  display: grid;
+  gap: 14px;
+  color: var(--muted);
+}
+
+.sk__text strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.sk__heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.sk__label:not(.sk__label--intro) {
+  padding-top: 6px;
+}
+
+.sk__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sk__pill {
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--light);
+  color: var(--text);
+  font: 500 14px var(--font);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.sk__pill:hover,
+.sk__pill.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  box-shadow: 0 3px 7px rgba(203, 45, 62, 0.35);
+}
+
+.sk__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
+  gap: 16px 20px;
 }
 
-.skill {
-  padding: 24px;
+.sk__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+  color: var(--text);
+  font-size: 14.5px;
+  transition: opacity 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
-.skill__group {
-  position: relative;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+.sk__icon {
+  flex-shrink: 0;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.25s ease, transform 0.25s ease;
 }
 
-.skill__group::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 36px;
-  height: 2px;
-  background: var(--accent);
+.sk__name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sk__item:hover .sk__icon,
+.sk__item.is-on .sk__icon {
+  filter: none;
+  transform: scale(1.12);
+}
+
+/* While a category is active, dim everything outside it */
+.sk__grid.has-active .sk__item {
+  opacity: 0.35;
+}
+
+.sk__grid.has-active .sk__item.is-on {
+  opacity: 1;
+  font-weight: 600;
+  border-bottom-color: var(--accent);
 }
 
 /* Certifications */
@@ -944,7 +1077,7 @@ ol {
   margin-top: 36px;
   padding: 22px 26px;
   border-left: 3px solid var(--accent);
-  background: var(--light);
+  background: var(--white);
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
@@ -1091,8 +1224,8 @@ ol {
     display: none;
   }
 
-  .skills {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .sk__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .projects {
@@ -1173,6 +1306,16 @@ ol {
     gap: 48px;
   }
 
+  .sk {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .sk__label:not(.sk__label--intro) {
+    margin-top: 18px;
+    padding-top: 0;
+  }
+
   .xp {
     gap: 32px;
   }
@@ -1248,9 +1391,23 @@ ol {
     margin-bottom: 40px;
   }
 
+  .sk__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 12px;
+  }
+
+  .sk__pill {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .marquee__item {
+    padding: 0 18px;
+    font-size: 15px;
+  }
+
   .about__info,
   .projects,
-  .skills,
   .certs,
   .contact__cards {
     grid-template-columns: minmax(0, 1fr);
@@ -1286,6 +1443,18 @@ ol {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .marquee__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    row-gap: 14px;
+  }
+
+  .marquee__item[aria-hidden='true'] {
+    display: none;
   }
 
   *,

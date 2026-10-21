@@ -1,6 +1,8 @@
 import Nav from './components/Nav';
+import TechMarquee from './components/TechMarquee';
 import Experience from './components/ExperienceTimeline';
-import { Hero, About, Projects, Skills, Certifications, Contact, Footer } from './components/Sections';
+import SkillsSection from './components/SkillsSection';
+import { Hero, About, Projects, Certifications, Contact, Footer } from './components/Sections';
 
 export default function App() {
   return (
@@ -8,10 +10,11 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <TechMarquee />
         <About />
         <Experience />
         <Projects />
-        <Skills />
+        <SkillsSection />
         <Certifications />
         <Contact />
       </main>
