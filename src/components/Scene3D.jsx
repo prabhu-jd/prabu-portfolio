@@ -3,8 +3,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
 
-const GOLD = '#c9a45c';
-const TEAL = '#3fb8af';
+const ACCENT = '#e0475a';
+const SOFT = '#f3b8c0';
 
 // Points spread evenly over a sphere: each one is a "microservice" node.
 function fibonacciSphere(count, radius) {
@@ -57,7 +57,7 @@ function Pulses({ points, edges, count }) {
   return state.map((_, i) => (
     <mesh key={i} ref={(el) => (refs.current[i] = el)}>
       <sphereGeometry args={[0.045, 12, 12]} />
-      <meshBasicMaterial color={i % 3 === 0 ? GOLD : TEAL} toneMapped={false} />
+      <meshBasicMaterial color={i % 3 === 0 ? ACCENT : SOFT} toneMapped={false} />
     </mesh>
   ));
 }
@@ -92,14 +92,14 @@ function Network({ compact, reducedMotion }) {
   return (
     <group ref={group}>
       <lineSegments geometry={lineGeometry}>
-        <lineBasicMaterial color={TEAL} transparent opacity={0.28} />
+        <lineBasicMaterial color={SOFT} transparent opacity={0.28} />
       </lineSegments>
       {points.map((p, i) => (
         <mesh key={i} position={p}>
           <sphereGeometry args={[i % 7 === 0 ? 0.09 : 0.06, 16, 16]} />
           <meshStandardMaterial
-            color={i % 7 === 0 ? GOLD : '#dfe7f2'}
-            emissive={i % 7 === 0 ? GOLD : TEAL}
+            color={i % 7 === 0 ? ACCENT : '#ffffff'}
+            emissive={i % 7 === 0 ? ACCENT : SOFT}
             emissiveIntensity={i % 7 === 0 ? 1.4 : 0.6}
           />
         </mesh>
@@ -114,13 +114,13 @@ function Core({ reducedMotion }) {
     <Float speed={reducedMotion ? 0 : 1.4} rotationIntensity={0.6} floatIntensity={0.8}>
       <mesh>
         <icosahedronGeometry args={[1.05, 1]} />
-        <meshBasicMaterial color={GOLD} wireframe transparent opacity={0.35} />
+        <meshBasicMaterial color={ACCENT} wireframe transparent opacity={0.35} />
       </mesh>
       <mesh scale={0.78}>
         <sphereGeometry args={[1, 64, 64]} />
         <MeshDistortMaterial
-          color="#13233d"
-          emissive="#0f3b45"
+          color="#2b2f36"
+          emissive="#4a1520"
           roughness={0.25}
           metalness={0.8}
           distort={reducedMotion ? 0 : 0.35}
@@ -142,11 +142,11 @@ export default function Scene3D({ compact = false }) {
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
     >
       <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={40} color={GOLD} />
-      <pointLight position={[-5, -3, 2]} intensity={30} color={TEAL} />
+      <pointLight position={[5, 5, 5]} intensity={40} color={ACCENT} />
+      <pointLight position={[-5, -3, 2]} intensity={30} color={SOFT} />
       <Core reducedMotion={reducedMotion} />
       <Network compact={compact} reducedMotion={reducedMotion} />
-      {!reducedMotion && <Sparkles count={compact ? 30 : 60} scale={8} size={2} speed={0.3} color={GOLD} opacity={0.5} />}
+      {!reducedMotion && <Sparkles count={compact ? 30 : 60} scale={8} size={2} speed={0.3} color={ACCENT} opacity={0.5} />}
     </Canvas>
   );
 }

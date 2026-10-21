@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
-import Reveal from './Reveal';
 import ScrambleText from './ScrambleText';
+import { SectionHead } from './Sections';
 import { experience } from '../data';
 
 function BriefcaseIcon() {
@@ -71,15 +71,14 @@ export default function ExperienceTimeline() {
   const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   return (
-    <section className="section section--alt" id="experience">
+    <section className="section" id="experience">
       <div className="container">
-        <Reveal className="section__head section__head--center">
-          <p className="eyebrow">Experience</p>
-          <ScrambleText as="h2" className="section__title" text="Work Experience" duration={1100} />
-          <p className="section__intro">
-            A decade across healthcare, banking and payments: systems where reliability is the product.
-          </p>
-        </Reveal>
+        <SectionHead
+          watermark="RESUME"
+          title="Work Experience"
+          intro="A decade across healthcare, banking and payments: systems where reliability is the product."
+          center
+        />
 
         <ol className="xp" ref={listRef}>
           <span className="xp__line" aria-hidden="true">
