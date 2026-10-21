@@ -76,7 +76,7 @@ export default function ExperienceTimeline() {
         <SectionHead
           watermark="RESUME"
           title="Work Experience"
-          intro="A decade across healthcare, banking and payments: systems where reliability is the product."
+          intro="Ten years, five companies and one constant: building systems that people rely on every day."
           center
         />
 

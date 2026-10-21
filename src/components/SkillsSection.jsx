@@ -30,13 +30,13 @@ export default function SkillsSection() {
           </Reveal>
           <Reveal delay={0.08} className="sk__text">
             <p>
-              My go-to stack is <strong>Java 21 with Spring Boot</strong> for microservices, <strong>Kafka</strong> for
-              event-driven workflows and <strong>Angular</strong> on the front end, shipped through Docker, Kubernetes and
-              GitOps to <strong>AWS and GCP</strong>.
+              My everyday toolkit is <strong>Java 21 and Spring Boot</strong> for services, <strong>Kafka</strong> for
+              events and <strong>Angular</strong> for the screens people use, packaged with Docker, run on Kubernetes and
+              released through GitOps on <strong>AWS and Google Cloud</strong>.
             </p>
             <p>
-              I care about systems that stay up under load: circuit breakers, retries, observability and security scans are
-              part of the design, not an afterthought.
+              Reliability is part of the design, not an afterthought. Circuit breakers, retries, monitoring and security
+              scanning are in place before a service ever reaches production.
             </p>
           </Reveal>
 

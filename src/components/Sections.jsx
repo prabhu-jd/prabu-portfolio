@@ -76,7 +76,7 @@ export function Hero() {
             <a className="btn btn--outline" href="#experience">View Experience</a>
           </motion.div>
           <motion.p className="hero__clients" {...fadeUp(0.55)}>
-            <span>Delivered for</span> CVS Health · Fiserv · Standard Chartered · DEWA · Stryker
+            <span>Clients I've delivered for</span> CVS Health · Fiserv · Standard Chartered · DEWA · Stryker
           </motion.p>
         </div>
 
@@ -93,7 +93,7 @@ export function Hero() {
               <Scene3D compact={compact} />
             </Suspense>
             <span className="hero__badge">
-              <strong>10+</strong> years building microservices
+              <strong>10+</strong> years shipping enterprise software
             </span>
           </div>
         </motion.div>
@@ -128,7 +128,7 @@ export function About() {
             <span className="about__frame" aria-hidden="true" />
             <div className="about__panel">
               <span className="about__big">10<span className="dot">+</span></span>
-              <span className="about__big-label">Years of experience working</span>
+              <span className="about__big-label">Years building enterprise software</span>
               <ul className="about__mini">
                 {stats.slice(1).map((s) => (
                   <li key={s.label}>
@@ -142,7 +142,7 @@ export function About() {
 
           <div className="about__body">
             <Reveal as="h3" className="about__lead">
-              I&rsquo;m Prabu A, a Lead Java Full Stack <span className="accent">developer.</span>
+              Hi, I&rsquo;m Prabu. I build software that businesses can&rsquo;t afford to have go <span className="accent">down.</span>
             </Reveal>
             {summary.map((p, i) => (
               <Reveal key={i} delay={0.05 + i * 0.06} as="p" className="about__text">
@@ -171,10 +171,10 @@ export function Contact() {
     <section className="contact" id="contact">
       <div className="container">
         <Reveal className="contact__inner">
-          <p className="contact__kicker">Drop A Message !</p>
+          <p className="contact__kicker">Have a role or a project in mind?</p>
           <ScrambleText as="h2" className="contact__title" text="Let's Work Together" />
           <p className="contact__text">
-            Open to Lead and Senior Java Full Stack roles. The quickest way to reach me is email or LinkedIn.
+            I&rsquo;m open to Lead and Senior Java Full Stack roles, and always happy to talk microservices, cloud platforms or a tricky integration problem. Email is the fastest way to reach me; LinkedIn works too.
           </p>
           <div className="contact__cards">
             <a className="contact__card" href={`mailto:${profile.email}`}>

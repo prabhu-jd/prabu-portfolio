@@ -104,7 +104,7 @@ export function Projects() {
         <SectionHead
           watermark="PROJECTS"
           title="Project Showcase"
-          intro="Enterprise systems delivered for global clients in healthcare, banking and government services."
+          intro="A closer look at systems I&rsquo;ve built for clients in healthcare, banking, utilities and government services."
           center
         />
         <div className="stack" style={{ '--n': projects.length }}>
@@ -135,7 +135,7 @@ export function Certifications() {
   return (
     <section className="section section--light" id="certifications">
       <div className="container">
-        <SectionHead watermark="CERTIFIED" title="Certifications" center />
+        <SectionHead watermark="CERTIFIED" title="Certifications" intro="Independent proof of the skills I use every day, from cloud architecture to core Java." center />
         <div className="stack" style={{ '--n': certifications.length }}>
           {certifications.map((c, i) => (
             <StackCard key={c.name} index={i}>

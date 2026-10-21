@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Prabu A',
   title: 'Lead Java Full Stack Developer',
-  tagline: 'I design and deliver cloud-native microservices for healthcare and financial services, from Java 21 and Spring Boot to Angular, running in production on AWS and GCP.',
+  tagline: 'I build the systems behind everyday transactions: pharmacy claims, card payments, visa applications. Java and Spring Boot on the back end, Angular on the front, running in production on AWS and Google Cloud.',
   email: 'prabhuvijay28@gmail.com',
   linkedin: 'https://www.linkedin.com/in/prabhu324/',
 };
@@ -10,16 +10,16 @@ export const profile = {
 export const roles = ['Lead Java Full Stack Developer.'];
 
 export const stats = [
-  { value: '10+', label: 'Years of experience' },
+  { value: '10+', label: 'Years building enterprise software' },
   { value: '4', label: 'Professional certifications' },
-  { value: '2', label: 'Clouds in production (AWS, GCP)' },
-  { value: '5', label: 'Companies delivered for' },
+  { value: '2', label: 'Cloud platforms in production' },
+  { value: '5', label: "Companies I've delivered for" },
 ];
 
 export const summary = [
-  '10+ years of experience designing and delivering cloud-native microservices for healthcare and financial services clients, including CVS Health and Fiserv.',
-  'Skilled in Java 21, Spring Boot, Angular, Kafka and Resilience4j, with production deployments on AWS (EKS) and GCP using Docker, Kubernetes and Argo CD.',
-  'Experienced in leading engineering teams through solution design, code reviews and production delivery.',
+  "For more than ten years I've built the software behind moments people take for granted: a prescription being filled, a bill being paid, a visa application going through. Today I'm a Lead Software Engineer at TCS, working on RxLink for CVS Health, the platform that connects pharmacies, claim adjudication and vendors in real time.",
+  "My home ground is Java and Spring Boot microservices, event-driven design with Kafka, and Angular for the screens people actually use. I ship through Docker, Kubernetes and GitOps, and I'm certified on both AWS and Google Cloud, so I'm comfortable owning a service from the first design sketch to production monitoring.",
+  'I lead as well as code. On Fiserv’s Payment360 I led a four-person team and owned service design and code reviews. I like clear designs, honest reviews and systems that stay quiet in production.',
 ];
 
 export const experience = [
@@ -30,10 +30,10 @@ export const experience = [
     client: 'CVS Health · RxLink',
     stack: ['Java 21', 'Spring Boot', 'Angular', 'MongoDB', 'GCP (GKE)', 'Argo CD', 'Grafana'],
     points: [
-      'Built 6+ Java 21 Spring Boot microservices that route real-time pharmacy claim transactions for a Fortune 10 U.S. PBM across 3 protocols (TCP, REST, SOAP).',
-      'Connected 10+ external pharmacy, adjudication and vendor systems to RxLink, moving millions of transactions a month through one secure integration layer.',
-      'Removed manual production deployments by shipping every service through Argo CD (GitOps) to Google Kubernetes Engine (GKE).',
-      'Built Grafana dashboards and alerts for latency and error rates across all RxLink services.',
+      'Building 6+ Java 21 / Spring Boot microservices that route real-time pharmacy transactions for a Fortune 10 U.S. pharmacy benefit manager.',
+      'Connecting 10+ pharmacies, adjudication engines and vendor systems over TCP, REST and SOAP, so millions of transactions a month flow through one secure integration layer.',
+      'Shipping every release through Argo CD and GitOps onto Google Kubernetes Engine, with no manual production deployments.',
+      'Keeping the platform observable with Grafana dashboards and alerts on latency and error rates.',
     ],
   },
   {
@@ -43,10 +43,10 @@ export const experience = [
     client: 'Fiserv · Payment360',
     stack: ['Java 17', 'Spring Boot 3', 'Confluent Kafka', 'Resilience4j', 'AWS EKS', 'Terraform'],
     points: [
-      'Led a 4-engineer team that delivered 8+ payment microservices (bill pay, card controls) for Fiserv’s bank and credit-union clients.',
-      'Held a 99.9% availability SLA through downstream outages with Resilience4j circuit breakers, retries and rate limiters.',
-      'Processed 100K+ payment events a day with zero message loss using event-driven workflows on Confluent Kafka.',
-      'Cut release cycles from ~2 weeks to ~2 days with GitLab CI/CD (SonarQube, Fortify, Docker) and Harness deployments to AWS EKS.',
+      'Led a four-engineer team that delivered 8+ payment microservices, including bill pay and card controls, for Fiserv’s bank and credit-union clients.',
+      'Kept payments at 99.9% availability even when downstream systems failed, using Resilience4j circuit breakers, retries and rate limits.',
+      'Designed event-driven workflows on Confluent Kafka that handle 100K+ payment events a day without losing a single message.',
+      'Worked with DevOps to shorten releases from about two weeks to about two days, with GitLab CI/CD, quality and security gates, and Harness deployments to AWS EKS.',
     ],
   },
   {
@@ -56,8 +56,8 @@ export const experience = [
     client: 'Standard Chartered · DEWA',
     stack: ['Spring Boot', 'Solace', 'Quartz', 'ShedLock', 'Angular 8', 'Oracle'],
     points: [
-      'Automated 50+ daily file exchanges with CACS and zero duplicate job runs across clustered nodes, using Solace messaging and ShedLock-guarded Quartz jobs.',
-      'Built REST APIs and Angular 8 screens for a voice-driven post-call survey serving DEWA’s 1M+ customer base.',
+      'For Standard Chartered, automated 50+ daily file exchanges with the CACS collections system over Solace messaging, with cluster-safe scheduling so no job ever ran twice.',
+      'For DEWA, built the APIs and Angular screens behind a voice-guided survey that reaches callers right after their call, serving a 1M+ customer base.',
     ],
   },
   {
@@ -67,7 +67,7 @@ export const experience = [
     client: 'VFS Tasheel · Onevasco',
     stack: ['Java 11', 'Spring Boot', 'Spring Security', 'Angular 8', 'MySQL', 'AWS'],
     points: [
-      'Moved 10+ visa services online by rebuilding a static site as a Spring Boot, Spring Security and Angular 8 platform on AWS.',
+      'Helped VFS Tasheel move 10+ visa services online, rebuilding a static website as a secure Spring Boot and Angular application on AWS, with back-office workflows for the operations team.',
     ],
   },
   {
@@ -77,7 +77,7 @@ export const experience = [
     client: 'Stryker · RippleCare',
     stack: ['Spring MVC', 'Thymeleaf', 'JSF', 'jQuery', 'Tomcat'],
     points: [
-      'Delivered 5+ care-plan modules for a patient engagement platform that coaches surgical patients before and after surgery.',
+      'Started my career on RippleCare for Stryker, delivering 5+ modules of a platform that coaches patients through their care plans before and after surgery.',
     ],
   },
 ];
@@ -89,11 +89,11 @@ export const projects = [
     client: 'CVS Health',
     domain: 'Healthcare · PBM',
     period: '2026 – Present',
-    text: 'Enterprise integration platform connecting external pharmacies, adjudication systems and third-party vendors.',
+    text: 'The integration hub that lets pharmacies, claim adjudication systems and third-party vendors talk to each other in real time.',
     points: [
-      '6+ Java 21 Spring Boot microservices for real-time pharmacy transactions.',
-      'TCP, REST and SOAP integrations with 10+ external systems.',
-      'GitOps deployments to GKE through Argo CD, monitored in Grafana.',
+      '6+ Java 21 / Spring Boot microservices handling live pharmacy transactions',
+      '10+ external systems connected over TCP, REST and SOAP',
+      'GitOps releases to GKE with Argo CD, watched through Grafana',
     ],
     tags: [['java', 'Java 21'], ['springboot', 'Spring Boot'], ['angular', 'Angular'], ['mongodb', 'MongoDB'], ['gcp', 'GKE'], ['argo', 'Argo CD'], ['grafana', 'Grafana']],
     flow: ['Pharmacies', 'RxLink Gateway', 'Adjudication & Vendors'],
@@ -104,11 +104,11 @@ export const projects = [
     client: 'Fiserv',
     domain: 'FinTech · Payments',
     period: '2023 – 2025',
-    text: 'Payment hub that lets bank and credit-union customers pay bills, control cards and manage obligations in one place.',
+    text: 'One place for bank and credit-union customers to pay their bills, control their cards and see everything they owe.',
     points: [
-      'Led a 4-engineer team delivering 8+ payment microservices.',
-      '99.9% availability with Resilience4j circuit breakers and retries.',
-      '100K+ Kafka payment events a day with zero message loss.',
+      'Four-engineer team, 8+ payment microservices delivered',
+      '99.9% availability, protected by circuit breakers and retries',
+      '100K+ Kafka events a day with zero message loss',
     ],
     tags: [['java', 'Java 17'], ['springboot', 'Spring Boot 3'], ['kafka', 'Kafka'], ['resilience', 'Resilience4j'], ['eks', 'AWS EKS'], ['terraform', 'Terraform']],
     flow: ['Bank Apps', 'Payment APIs', 'Kafka Events', 'Billers & Cards'],
@@ -119,11 +119,11 @@ export const projects = [
     client: 'Standard Chartered',
     domain: 'Banking · Integration',
     period: '2021',
-    text: 'Reliable upstream and downstream file exchange between the dialer and the collections system.',
+    text: "A dependable file pipeline between the bank's dialer and its CACS collections system.",
     points: [
-      'Automated 50+ daily file exchanges with CACS.',
-      'Zero duplicate runs across nodes with ShedLock-guarded Quartz jobs.',
-      'Solace topics and queues for request-response messaging.',
+      '50+ file exchanges automated every day',
+      'Cluster-safe scheduling, so no job ever runs twice',
+      'Solace topics and queues for request-response messaging',
     ],
     tags: [['springboot', 'Spring Boot'], ['queue', 'Solace'], ['oracle', 'Oracle'], ['gitlab', 'GitLab']],
     flow: ['Dialer', 'Solace Queues', 'CACS'],
@@ -134,11 +134,11 @@ export const projects = [
     client: 'VFS Tasheel',
     domain: 'Government Services',
     period: '2019 – 2020',
-    text: 'Turned a static service website into a dynamic online visa application platform.',
+    text: 'Turned a static information website into a full online visa application platform.',
     points: [
-      'Moved 10+ visa services online.',
-      'Secured REST APIs with Spring Security.',
-      'Back-office workflows for the business team, hosted on AWS.',
+      '10+ visa services moved online',
+      'Secure REST APIs built with Spring Security',
+      'Back-office workflows for the operations team, hosted on AWS',
     ],
     tags: [['java', 'Java 11'], ['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL'], ['aws', 'AWS']],
     flow: ['Applicants', 'Angular UI', 'Spring Boot API', 'MySQL'],
@@ -149,11 +149,11 @@ export const projects = [
     client: 'DEWA',
     domain: 'Utilities · Customer Experience',
     period: '2020 – 2021',
-    text: 'Voice-interactive feedback flow that moves callers into a voice-assisted survey right after their call.',
+    text: 'Invites callers into a voice-guided feedback survey the moment their call ends.',
     points: [
-      'Post-call survey prompt with voice-triggered navigation.',
-      'REST APIs and Angular 8 screens for survey handling.',
-      "Serving DEWA's 1M+ customer base.",
+      'Smooth hand-off from the call to the voice survey',
+      'REST APIs and Angular screens for survey handling',
+      "Built for DEWA's 1M+ customer base",
     ],
     tags: [['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL']],
     flow: ['Call Ends', 'Survey Prompt', 'Voice Survey', 'Feedback'],
@@ -164,11 +164,11 @@ export const projects = [
     client: 'Stryker',
     domain: 'Healthcare · Patient Engagement',
     period: '2017 – 2018',
-    text: 'Automated coaching, education and communication for pre- and post-surgical care plans.',
+    text: 'Automated coaching and reminders that help patients stick to their care plan before and after surgery.',
     points: [
-      'Delivered 5+ care-plan modules.',
-      'Turned functional requirements into web components.',
-      'Peer code reviews and collaborative testing.',
+      '5+ care-plan modules delivered',
+      'Functional requirements turned into working web components',
+      'Quality kept high through peer reviews and joint testing',
     ],
     tags: [['spring', 'Spring MVC'], ['thymeleaf', 'Thymeleaf'], ['javascript', 'jQuery'], ['oracle', 'SQL']],
     flow: ['Care Plan', 'Coaching Engine', 'Patients'],
@@ -263,8 +263,8 @@ export const certifications = [
     issuer: 'Amazon Web Services',
     icon: 'aws',
     level: 'Associate',
-    text: 'Designing secure, resilient, high-performing and cost-optimized architectures on AWS.',
-    points: ['Compute, storage, networking and databases on AWS', 'High availability and fault-tolerant design', 'Security, IAM and cost optimization'],
+    text: 'Proves I can design AWS systems that are secure, resilient, fast and cost-aware.',
+    points: ['Choosing the right compute, storage and database services', 'Designing for high availability and fault tolerance', 'Controlling access with IAM and keeping costs in check'],
     tags: ['EKS', 'EC2', 'Lambda', 'S3', 'DynamoDB', 'IAM'],
   },
   {
@@ -273,8 +273,8 @@ export const certifications = [
     issuer: 'Google Cloud',
     icon: 'gcp',
     level: 'Professional',
-    text: 'Building scalable, highly available cloud-native applications with Google-recommended practices.',
-    points: ['Cloud-native application design', 'Deploying to GKE and managed services', 'Monitoring, logging and performance'],
+    text: 'Proves I can build, deploy and run cloud-native applications on Google Cloud the way Google recommends.',
+    points: ['Designing scalable, highly available applications', 'Deploying to GKE and managed services', 'Monitoring, logging and tuning in production'],
     tags: ['GKE', 'Artifact Registry', 'Cloud Logging', 'Cloud Monitoring', 'IAM'],
   },
   {
@@ -283,8 +283,8 @@ export const certifications = [
     issuer: 'Anthropic',
     icon: 'claude',
     level: 'Foundations',
-    text: "Building applications on Anthropic's Claude models and API.",
-    points: ['Prompting and working with Claude', 'Integrating the Claude API into applications', 'Responsible use of AI in software'],
+    text: "Covers building real applications on Anthropic's Claude models and API.",
+    points: ['Writing effective prompts for Claude', 'Integrating the Claude API into applications', 'Using AI responsibly in software'],
     tags: ['Claude API', 'Prompt Design', 'AI Integration'],
   },
   {
@@ -293,8 +293,8 @@ export const certifications = [
     issuer: 'Oracle',
     icon: 'oracle',
     level: 'Associate',
-    text: 'Core Java SE 8 programming fundamentals.',
-    points: ['Object-oriented design in Java', 'Data types, operators and control flow', 'Exceptions and core Java APIs'],
+    text: 'My foundation in core Java, certified by Oracle.',
+    points: ['Object-oriented design in Java', 'Data types, operators and control flow', 'Exceptions and the core Java APIs'],
     tags: ['Java SE 8', 'OOP', 'Core APIs'],
   },
 ];
