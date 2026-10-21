@@ -7,12 +7,7 @@ export const profile = {
 };
 
 // Phrases the hero types out under the name.
-export const roles = [
-  'Lead Java Full Stack Developer.',
-  'Spring Boot Microservices Engineer.',
-  'AWS & GCP Certified Developer.',
-  'Angular Front-End Developer.',
-];
+export const roles = ['Lead Java Full Stack Developer.'];
 
 export const stats = [
   { value: '10+', label: 'Years of experience' },
