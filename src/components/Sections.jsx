@@ -3,7 +3,8 @@ import { motion, useInView } from 'framer-motion';
 import Reveal from './Reveal';
 import ScrambleText from './ScrambleText';
 import TypeWriter from './TypeWriter';
-import { profile, stats, summary, roles } from '../data';
+import { Icon } from '../icons';
+import { profile, summary, roles, focus, traits } from '../data';
 
 const Scene3D = lazy(() => import('./Scene3D'));
 
@@ -61,6 +62,10 @@ export function Hero() {
 
       <div className="container hero__grid">
         <div className="hero__copy">
+          <motion.p className="hero__status" {...fadeUp(0)}>
+            <span className="hero__status-dot" aria-hidden="true" />
+            {profile.availability}
+          </motion.p>
           <motion.h1 className="hero__name" {...fadeUp(0.1)}>
             Prabu A
           </motion.h1>
@@ -89,10 +94,12 @@ export function Hero() {
           <div className="hero__panel">
             <img
               className="hero__photo"
-              src="/images/prabu-hero.webp"
+              src="/images/prabu-hero@2x.webp"
+              srcSet="/images/prabu-hero.webp 564w, /images/prabu-hero@2x.webp 1128w"
+              sizes="(max-width: 900px) 100vw, 46vw"
               alt="Prabu A, Lead Java Full Stack Developer"
-              width="900"
-              height="1000"
+              width="1128"
+              height="1254"
               fetchpriority="high"
             />
             <span className="hero__badge">
@@ -112,16 +119,34 @@ export function Hero() {
   );
 }
 
-export function About() {
-  const info = [
-    ['Degree', 'B.E. Computer Science'],
-    ['Email', profile.email],
-    ['Experience', '10+ Years'],
-    ['Cloud', 'AWS & GCP Certified'],
-    ['Current', 'TCS · CVS Health'],
-    ['Based in', 'India'],
-  ];
+// A small "Engineer.java" card summarizing the profile, in the spirit of a code editor.
+function EngineerCard() {
+  return (
+    <div className="code-card" aria-label="Profile summary written as Java code">
+      <div className="code-card__bar">
+        <span />
+        <span />
+        <span />
+        <em>Engineer.java</em>
+      </div>
+      <pre className="code-card__body">
+        <code>
+          <span className="k">var</span> engineer = <span className="k">new</span> <span className="t">Engineer</span>(
+          {'\n'}    name:       <span className="s">"Prabu A"</span>,
+          {'\n'}    role:       <span className="s">"Lead Java Full Stack Developer"</span>,
+          {'\n'}    experience: <span className="s">"10+ years"</span>,
+          {'\n'}    stack:      <span className="t">List</span>.of(<span className="s">"Java"</span>, <span className="s">"Spring Boot"</span>, <span className="s">"Angular"</span>, <span className="s">"Kafka"</span>),
+          {'\n'}    cloud:      <span className="t">List</span>.of(<span className="s">"AWS"</span>, <span className="s">"GCP"</span>),
+          {'\n'}    focus:      <span className="s">"Microservices + Integration"</span>,
+          {'\n'}    available:  <span className="k">true</span>
+          {'\n'});
+        </code>
+      </pre>
+    </div>
+  );
+}
 
+export function About() {
   return (
     <section className="section section--light" id="about">
       <div className="container">
@@ -131,10 +156,12 @@ export function About() {
             <span className="about__frame" aria-hidden="true" />
             <img
               className="about__photo"
-              src="/images/prabu-about.webp"
+              src="/images/prabu-about@2x.webp"
+              srcSet="/images/prabu-about.webp 502w, /images/prabu-about@2x.webp 1003w"
+              sizes="(max-width: 900px) 100vw, 40vw"
               alt="Prabu A smiling, in a white shirt"
-              width="720"
-              height="900"
+              width="1003"
+              height="1254"
               loading="lazy"
             />
             <div className="about__badge">
@@ -145,32 +172,62 @@ export function About() {
 
           <div className="about__body">
             <Reveal as="h3" className="about__lead">
-              Hi, I&rsquo;m Prabu. I build software that businesses can&rsquo;t afford to have go <span className="accent">down.</span>
+              Lead Java Full Stack Developer with 10+ years building systems for healthcare and financial{' '}
+              <span className="accent">services.</span>
             </Reveal>
             {summary.map((p, i) => (
               <Reveal key={i} delay={0.05 + i * 0.06} as="p" className="about__text">
                 {p}
               </Reveal>
             ))}
-            <Reveal delay={0.2} className="about__info">
-              {info.map(([k, v]) => (
-                <p key={k}>
-                  <span className="about__key">{k}:</span> {v}
-                </p>
-              ))}
+            <Reveal delay={0.18} className="about__meta">
+              <span>{profile.location}</span>
+              <span>{profile.availability}</span>
             </Reveal>
-            <Reveal delay={0.24} as="ul" className="about__stats">
-              {stats.slice(1).map((s) => (
-                <li key={s.label}>
-                  <strong>{s.value}</strong>
-                  <span>{s.label}</span>
-                </li>
-              ))}
+            <Reveal delay={0.22}>
+              <EngineerCard />
             </Reveal>
-            <Reveal delay={0.28}>
-              <a className="btn btn--outline" href={`mailto:${profile.email}`}>Hire Me</a>
+            <Reveal delay={0.28} className="about__actions">
+              <a className="btn btn--primary" href={`mailto:${profile.email}`}>Work With Me</a>
+              <a className="btn btn--outline" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
             </Reveal>
           </div>
+        </div>
+
+        <div className="traits">
+          {traits.map(([title, text], i) => (
+            <Reveal key={title} delay={i * 0.08} className="trait">
+              <span className="trait__index">{String(i + 1).padStart(2, '0')}</span>
+              <h4 className="trait__title">{title}</h4>
+              <p className="trait__text">{text}</p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function WhatIDo() {
+  return (
+    <section className="section" id="focus">
+      <div className="container">
+        <SectionHead
+          watermark="FOCUS"
+          title="What I Do"
+          intro="Senior engineering for systems that can't afford to go down."
+          center
+        />
+        <div className="focus">
+          {focus.map(([icon, title, text], i) => (
+            <Reveal key={title} delay={i * 0.08} className="card focus__card">
+              <span className="focus__icon">
+                <Icon name={icon} size={26} />
+              </span>
+              <h3 className="focus__title">{title}</h3>
+              <p className="focus__text">{text}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
@@ -194,10 +251,10 @@ export function Contact() {
       </div>
       <div className="container">
         <Reveal className="contact__inner">
-          <p className="contact__kicker">Have a role or a project in mind?</p>
-          <ScrambleText as="h2" className="contact__title" text="Let's Work Together" />
+          <p className="contact__kicker">Full-time opportunities</p>
+          <ScrambleText as="h2" className="contact__title" text="Let's Build Something Reliable" />
           <p className="contact__text">
-            I&rsquo;m open to Lead and Senior Java Full Stack roles, and always happy to talk microservices, cloud platforms or a tricky integration problem. Email is the fastest way to reach me; LinkedIn works too.
+            Looking for an experienced Java engineer to lead or strengthen your team? I&rsquo;m open to Lead and Senior Java Full Stack roles, and always happy to talk microservices, cloud platforms or a tricky integration problem. Email is the fastest way to reach me; LinkedIn works too.
           </p>
           <div className="contact__cards">
             <a className="contact__card" href={`mailto:${profile.email}`}>
@@ -233,7 +290,7 @@ export function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <span>© {new Date().getFullYear()} Prabu A. All rights reserved.</span>
-        <span>Lead Java Full Stack Developer</span>
+        <span>Lead Java Full Stack Developer · {profile.availability}</span>
       </div>
       <a href="#home" className={`to-top ${showTop ? 'is-visible' : ''}`} aria-label="Back to top">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

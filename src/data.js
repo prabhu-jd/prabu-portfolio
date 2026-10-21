@@ -1,9 +1,11 @@
 export const profile = {
   name: 'Prabu A',
   title: 'Lead Java Full Stack Developer',
-  tagline: 'I build the systems behind everyday transactions: pharmacy claims, card payments, visa applications. Java and Spring Boot on the back end, Angular on the front, running in production on AWS and Google Cloud.',
+  availability: 'Open to Lead & Senior Java Full Stack roles',
+  tagline: 'Lead engineer building scalable, resilient microservices and integration platforms for healthcare and fintech. 10+ years shipping production systems with Java, Spring Boot, Angular and Kafka on AWS and Google Cloud.',
   email: 'prabhuvijay28@gmail.com',
   linkedin: 'https://www.linkedin.com/in/prabhu324/',
+  location: 'India',
 };
 
 // Phrases the hero types out under the name.
@@ -16,10 +18,25 @@ export const stats = [
   { value: '5', label: "Companies I've delivered for" },
 ];
 
+// "What I do" focus areas: [icon, title, text]
+export const focus = [
+  ['springboot', 'Microservices & APIs', 'Designing and building Java 21 / Spring Boot microservices and REST and SOAP APIs that stay fast and stable under real production load.'],
+  ['api', 'Enterprise Integration', 'Connecting systems that were never designed to talk to each other, over TCP, REST, SOAP, Kafka and Solace, with secure and reliable message flows.'],
+  ['kubernetes', 'Cloud & Delivery', 'Shipping to AWS EKS and Google Kubernetes Engine with Docker, Terraform, CI/CD and GitOps, so releases are routine rather than risky.'],
+  ['angular', 'Full Stack & Leadership', 'Angular front ends on top of the services I build, and team leadership through solution design, code reviews and steady delivery.'],
+];
+
 export const summary = [
-  "For more than ten years I've built the software behind moments people take for granted: a prescription being filled, a bill being paid, a visa application going through. Today I'm a Lead Software Engineer at TCS, working on RxLink for CVS Health, the platform that connects pharmacies, claim adjudication and vendors in real time.",
-  "My home ground is Java and Spring Boot microservices, event-driven design with Kafka, and Angular for the screens people actually use. I ship through Docker, Kubernetes and GitOps, and I'm certified on both AWS and Google Cloud, so I'm comfortable owning a service from the first design sketch to production monitoring.",
-  'I lead as well as code. On Fiserv’s Payment360 I led a four-person team and owned service design and code reviews. I like clear designs, honest reviews and systems that stay quiet in production.',
+  "I'm Prabu A, a Lead Software Engineer at TCS. I build the backend systems behind everyday transactions: a prescription being filled, a card payment going through, a visa application being processed.",
+  'My work spans Java and Spring Boot microservices, event-driven design with Kafka, enterprise integrations and Angular front ends, deployed on AWS and Google Cloud with Docker, Kubernetes and GitOps.',
+  'I enjoy taking complex, messy integration problems and turning them into clear, dependable software that teams can trust in production.',
+];
+
+// Working-style cards in the About section: [title, text]
+export const traits = [
+  ['Reliability first', 'I design for failure: circuit breakers, retries and monitoring are part of the plan, not an afterthought.'],
+  ['End-to-end ownership', 'From solution design and code to deployment and production monitoring.'],
+  ['Team leadership', 'Leading engineers through design discussions, code reviews and steady, predictable delivery.'],
 ];
 
 export const experience = [
@@ -27,13 +44,14 @@ export const experience = [
     role: 'Assistant Consultant (Lead Software Engineer)',
     company: 'Tata Consultancy Services (TCS)',
     period: 'Jan 2026 – Present',
+    current: true,
     client: 'CVS Health · RxLink',
     stack: ['Java 21', 'Spring Boot', 'Angular', 'MongoDB', 'GCP (GKE)', 'Argo CD', 'Grafana'],
     points: [
-      'Building 6+ Java 21 / Spring Boot microservices that route real-time pharmacy transactions for a Fortune 10 U.S. pharmacy benefit manager.',
-      'Connecting 10+ pharmacies, adjudication engines and vendor systems over TCP, REST and SOAP, so millions of transactions a month flow through one secure integration layer.',
-      'Shipping every release through Argo CD and GitOps onto Google Kubernetes Engine, with no manual production deployments.',
-      'Keeping the platform observable with Grafana dashboards and alerts on latency and error rates.',
+      'Developing RxLink, a Java and Spring Boot microservices integration platform for a Fortune 10 U.S. pharmacy benefit manager, connecting external pharmacies, adjudication systems and third-party vendors.',
+      'Implementing and maintaining multi-protocol integrations over TCP, REST and SOAP for reliable, secure exchange of high-volume pharmacy transactions.',
+      'Designing scalable, resilient microservices for real-time transaction processing, improving interoperability, performance and maintainability.',
+      'Shipping through Argo CD (GitOps) to Google Kubernetes Engine, with Grafana dashboards and alerts on latency and error rates.',
     ],
   },
   {
@@ -43,10 +61,10 @@ export const experience = [
     client: 'Fiserv · Payment360',
     stack: ['Java 17', 'Spring Boot 3', 'Confluent Kafka', 'Resilience4j', 'AWS EKS', 'Terraform'],
     points: [
-      'Led a four-engineer team that delivered 8+ payment microservices, including bill pay and card controls, for Fiserv’s bank and credit-union clients.',
-      'Kept payments at 99.9% availability even when downstream systems failed, using Resilience4j circuit breakers, retries and rate limits.',
-      'Designed event-driven workflows on Confluent Kafka that handle 100K+ payment events a day without losing a single message.',
-      'Worked with DevOps to shorten releases from about two weeks to about two days, with GitLab CI/CD, quality and security gates, and Harness deployments to AWS EKS.',
+      'Led a four-engineer team building Payment360 for Fiserv: 8+ payment microservices for bill pay and card controls used by bank and credit-union customers.',
+      'Built resilient services with Resilience4j circuit breakers, retries and rate limiters, holding a 99.9% availability SLA through downstream outages.',
+      'Designed event-driven workflows on Confluent Kafka processing 100K+ payment events a day with zero message loss.',
+      'Partnered with DevOps on GitLab CI/CD (SonarQube, Fortify, Docker) and Harness deployments to AWS EKS, cutting release cycles from about two weeks to about two days.',
     ],
   },
   {
@@ -56,8 +74,9 @@ export const experience = [
     client: 'Standard Chartered · DEWA',
     stack: ['Spring Boot', 'Solace', 'Quartz', 'ShedLock', 'Angular 8', 'Oracle'],
     points: [
-      'For Standard Chartered, automated 50+ daily file exchanges with the CACS collections system over Solace messaging, with cluster-safe scheduling so no job ever ran twice.',
-      'For DEWA, built the APIs and Angular screens behind a voice-guided survey that reaches callers right after their call, serving a 1M+ customer base.',
+      "Built Solace publish/subscribe modules for Standard Chartered's dialer, automating 50+ daily file exchanges with the CACS collections system.",
+      'Implemented cluster-safe scheduled jobs with Quartz and ShedLock, so no job ever ran twice across nodes.',
+      "Designed REST APIs and Angular 8 components for DEWA's voice-driven post-call customer survey.",
     ],
   },
   {
@@ -67,7 +86,9 @@ export const experience = [
     client: 'VFS Tasheel · Onevasco',
     stack: ['Java 11', 'Spring Boot', 'Spring Security', 'Angular 8', 'MySQL', 'AWS'],
     points: [
-      'Helped VFS Tasheel move 10+ visa services online, rebuilding a static website as a secure Spring Boot and Angular application on AWS, with back-office workflows for the operations team.',
+      "Built full-stack modules for Onevasco, turning VFS Tasheel's static service site into an online visa application platform with 10+ services.",
+      'Implemented secure REST APIs with Spring Security and back-office workflows for the operations team, hosted on AWS.',
+      'Resolved production issues and shipped peer-reviewed code across the front end and back end.',
     ],
   },
   {
@@ -77,36 +98,38 @@ export const experience = [
     client: 'Stryker · RippleCare',
     stack: ['Spring MVC', 'Thymeleaf', 'JSF', 'jQuery', 'Tomcat'],
     points: [
-      'Started my career on RippleCare for Stryker, delivering 5+ modules of a platform that coaches patients through their care plans before and after surgery.',
+      "Built web modules for RippleCare, Stryker's patient engagement platform that coaches patients through pre- and post-surgical care plans.",
+      'Translated functional requirements into Spring MVC, Thymeleaf and JSF components, delivering 5+ care-plan modules.',
+      'Kept quality high through peer code reviews and collaborative testing.',
     ],
   },
 ];
 
-// tags: [icon, label]; flow: the system diagram drawn on the card's right side.
+// category: the uppercase label on each card; tags: [icon, label]; flow: the diagram on the card's right side.
 export const projects = [
   {
     name: 'RxLink',
     client: 'CVS Health',
-    domain: 'Healthcare · PBM',
+    category: 'Pharmacy claims integration platform',
     period: '2026 – Present',
-    text: 'The integration hub that lets pharmacies, claim adjudication systems and third-party vendors talk to each other in real time.',
+    text: 'Lets pharmacies, claim adjudication systems and vendors exchange high-volume pharmacy transactions in real time. I build its Java 21 microservices and multi-protocol integrations.',
     points: [
       '6+ Java 21 / Spring Boot microservices handling live pharmacy transactions',
       '10+ external systems connected over TCP, REST and SOAP',
       'GitOps releases to GKE with Argo CD, watched through Grafana',
     ],
-    tags: [['java', 'Java 21'], ['springboot', 'Spring Boot'], ['angular', 'Angular'], ['mongodb', 'MongoDB'], ['gcp', 'GKE'], ['argo', 'Argo CD'], ['grafana', 'Grafana']],
+    tags: [['java', 'Java 21'], ['springboot', 'Spring Boot'], ['mongodb', 'MongoDB'], ['gcp', 'GKE'], ['argo', 'Argo CD']],
     flow: ['Pharmacies', 'RxLink Gateway', 'Adjudication & Vendors'],
     protocols: ['TCP', 'REST', 'SOAP'],
   },
   {
     name: 'Payment360',
     client: 'Fiserv',
-    domain: 'FinTech · Payments',
+    category: 'Digital payments hub for banks',
     period: '2023 – 2025',
-    text: 'One place for bank and credit-union customers to pay their bills, control their cards and see everything they owe.',
+    text: 'Lets bank and credit-union customers pay bills, control cards and see every obligation in one place. I led the four-engineer team building its payment microservices.',
     points: [
-      'Four-engineer team, 8+ payment microservices delivered',
+      '8+ payment microservices for bill pay and card controls',
       '99.9% availability, protected by circuit breakers and retries',
       '100K+ Kafka events a day with zero message loss',
     ],
@@ -117,9 +140,9 @@ export const projects = [
   {
     name: 'Dialer – CACS Integration',
     client: 'Standard Chartered',
-    domain: 'Banking · Integration',
+    category: 'Collections file integration',
     period: '2021',
-    text: "A dependable file pipeline between the bank's dialer and its CACS collections system.",
+    text: "Moves upstream and downstream files between the bank's dialer and its CACS collections system through Solace topics and queues. I built the publish/subscribe modules and the scheduled jobs.",
     points: [
       '50+ file exchanges automated every day',
       'Cluster-safe scheduling, so no job ever runs twice',
@@ -132,9 +155,9 @@ export const projects = [
   {
     name: 'Onevasco',
     client: 'VFS Tasheel',
-    domain: 'Government Services',
+    category: 'Online visa application platform',
     period: '2019 – 2020',
-    text: 'Turned a static information website into a full online visa application platform.',
+    text: 'A static service website rebuilt as a platform where customers apply online for visa services, with back-office workflows for the business team. I worked full stack, from Angular screens to secured Spring Boot APIs.',
     points: [
       '10+ visa services moved online',
       'Secure REST APIs built with Spring Security',
@@ -147,9 +170,9 @@ export const projects = [
   {
     name: 'Voice Survey',
     client: 'DEWA',
-    domain: 'Utilities · Customer Experience',
+    category: 'Voice-driven customer feedback',
     period: '2020 – 2021',
-    text: 'Invites callers into a voice-guided feedback survey the moment their call ends.',
+    text: 'Invites Dubai Electricity and Water Authority callers into a voice-assisted survey the moment their call ends. I built the REST APIs and the front-end survey flow.',
     points: [
       'Smooth hand-off from the call to the voice survey',
       'REST APIs and Angular screens for survey handling',
@@ -162,12 +185,12 @@ export const projects = [
   {
     name: 'RippleCare',
     client: 'Stryker',
-    domain: 'Healthcare · Patient Engagement',
+    category: 'Patient engagement platform',
     period: '2017 – 2018',
-    text: 'Automated coaching and reminders that help patients stick to their care plan before and after surgery.',
+    text: 'Automated coaching, education and reminders that help patients follow their care plans before and after surgery. I built care-plan modules from functional requirements.',
     points: [
       '5+ care-plan modules delivered',
-      'Functional requirements turned into working web components',
+      'Requirements turned into working web components',
       'Quality kept high through peer reviews and joint testing',
     ],
     tags: [['spring', 'Spring MVC'], ['thymeleaf', 'Thymeleaf'], ['javascript', 'jQuery'], ['oracle', 'SQL']],

@@ -39,6 +39,7 @@ function XpCard({ job, index }) {
         <header className="xp__head">
           <span className="xp__icon"><BriefcaseIcon /></span>
           <div>
+            {job.current && <span className="xp__current">Current role</span>}
             <ScrambleText as="h3" className="xp__role" text={job.role} />
             <p className="xp__company">{job.company}</p>
           </div>
@@ -71,7 +72,7 @@ export default function ExperienceTimeline() {
   const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   return (
-    <section className="section" id="experience">
+    <section className="section section--light" id="experience">
       <div className="container">
         <SectionHead
           watermark="RESUME"

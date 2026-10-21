@@ -3,7 +3,7 @@ import TechMarquee from './components/TechMarquee';
 import Experience from './components/ExperienceTimeline';
 import SkillsSection from './components/SkillsSection';
 import { Projects, Certifications } from './components/Showcase';
-import { Hero, About, Contact, Footer } from './components/Sections';
+import { Hero, About, WhatIDo, Contact, Footer } from './components/Sections';
 
 export default function App() {
   return (
@@ -13,6 +13,7 @@ export default function App() {
         <Hero />
         <TechMarquee />
         <About />
+        <WhatIDo />
         <Experience />
         <Projects />
         <SkillsSection />

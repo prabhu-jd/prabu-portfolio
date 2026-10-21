@@ -28,7 +28,7 @@ function StackCard({ index, children }) {
   );
 }
 
-function CardBody({ title, meta, text, points, chips }) {
+function CardBody({ title, meta, kicker, text, points, chips }) {
   return (
     <div className="stack__body">
       <div className="stack__title-row">
@@ -36,6 +36,7 @@ function CardBody({ title, meta, text, points, chips }) {
         <span className="stack__meta">{meta}</span>
       </div>
       <div className="stack__content">
+        {kicker && <p className="stack__kicker">{kicker}</p>}
         <p className="stack__text">{text}</p>
         <ul className="stack__points">
           {points.map((p) => (
@@ -99,7 +100,7 @@ function CertBadge({ cert }) {
 
 export function Projects() {
   return (
-    <section className="section section--light" id="projects">
+    <section className="section" id="projects">
       <div className="container">
         <SectionHead
           watermark="PROJECTS"
@@ -113,6 +114,7 @@ export function Projects() {
               <CardBody
                 title={p.name}
                 meta={`${p.client} · ${p.period}`}
+                kicker={p.category}
                 text={p.text}
                 points={p.points}
                 chips={p.tags.map(([icon, label]) => (
@@ -133,7 +135,7 @@ export function Projects() {
 
 export function Certifications() {
   return (
-    <section className="section section--light" id="certifications">
+    <section className="section" id="certifications">
       <div className="container">
         <SectionHead watermark="CERTIFIED" title="Certifications" intro="Independent proof of the skills I use every day, from cloud architecture to core Java." center />
         <div className="stack" style={{ '--n': certifications.length }}>
@@ -142,6 +144,7 @@ export function Certifications() {
               <CardBody
                 title={c.short}
                 meta={c.issuer}
+                kicker={`${c.level} certification`}
                 text={c.name}
                 points={[c.text, ...c.points]}
                 chips={c.tags.map((t) => (

@@ -19,7 +19,7 @@ export default function SkillsSection() {
   const active = hovered || selected;
 
   return (
-    <section className="section" id="skills">
+    <section className="section section--light" id="skills">
       <div className="container">
         <SectionHead watermark="SKILLS" title="My Skills" />
 
