@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
 import Reveal from './Reveal';
 import ScrambleText from './ScrambleText';
 import TypeWriter from './TypeWriter';
@@ -54,7 +54,6 @@ function MailIcon() {
 }
 
 export function Hero() {
-  const compact = useIsCompact();
   return (
     <section className="hero" id="home">
       <div className="hero__blush" aria-hidden="true" />
@@ -82,16 +81,20 @@ export function Hero() {
 
         <motion.div
           className="hero__visual"
-          aria-hidden="true"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="hero__frame" />
+          <span className="hero__frame" aria-hidden="true" />
           <div className="hero__panel">
-            <Suspense fallback={<div className="hero__fallback" />}>
-              <Scene3D compact={compact} />
-            </Suspense>
+            <img
+              className="hero__photo"
+              src="/images/prabu-hero.webp"
+              alt="Prabu A, Lead Java Full Stack Developer"
+              width="900"
+              height="1000"
+              fetchpriority="high"
+            />
             <span className="hero__badge">
               <strong>10+</strong> years shipping enterprise software
             </span>
@@ -126,17 +129,17 @@ export function About() {
         <div className="about">
           <Reveal className="about__visual">
             <span className="about__frame" aria-hidden="true" />
-            <div className="about__panel">
+            <img
+              className="about__photo"
+              src="/images/prabu-about.webp"
+              alt="Prabu A smiling, in a white shirt"
+              width="720"
+              height="900"
+              loading="lazy"
+            />
+            <div className="about__badge">
               <span className="about__big">10<span className="dot">+</span></span>
               <span className="about__big-label">Years building enterprise software</span>
-              <ul className="about__mini">
-                {stats.slice(1).map((s) => (
-                  <li key={s.label}>
-                    <strong>{s.value}</strong>
-                    <span>{s.label}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </Reveal>
 
@@ -156,6 +159,14 @@ export function About() {
                 </p>
               ))}
             </Reveal>
+            <Reveal delay={0.24} as="ul" className="about__stats">
+              {stats.slice(1).map((s) => (
+                <li key={s.label}>
+                  <strong>{s.value}</strong>
+                  <span>{s.label}</span>
+                </li>
+              ))}
+            </Reveal>
             <Reveal delay={0.28}>
               <a className="btn btn--outline" href={`mailto:${profile.email}`}>Hire Me</a>
             </Reveal>
@@ -167,8 +178,20 @@ export function About() {
 }
 
 export function Contact() {
+  const compact = useIsCompact();
+  const ref = useRef(null);
+  // Load the 3D scene only when the visitor gets near the contact section.
+  const near = useInView(ref, { once: true, margin: '400px' });
+
   return (
-    <section className="contact" id="contact">
+    <section className="contact" id="contact" ref={ref}>
+      <div className="contact__scene" aria-hidden="true">
+        {near && (
+          <Suspense fallback={null}>
+            <Scene3D compact={compact} />
+          </Suspense>
+        )}
+      </div>
       <div className="container">
         <Reveal className="contact__inner">
           <p className="contact__kicker">Have a role or a project in mind?</p>
