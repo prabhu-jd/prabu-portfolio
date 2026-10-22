@@ -217,12 +217,34 @@ ol {
 }
 
 .nav__links a:not(.btn) {
+  position: relative;
+  padding: 6px 0;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text);
   transition: color 0.2s ease;
+}
+
+/* Underline that draws in from right to left, eased like the experience timeline line */
+.nav__links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav__links a:not(.btn):hover::after,
+.nav__links a.is-active::after {
+  transform: scaleX(1);
 }
 
 .nav__links a:not(.btn):hover,
@@ -1753,6 +1775,11 @@ ol {
     padding: 14px 0;
     font-size: 14px;
     border-bottom: 1px solid var(--border);
+  }
+
+  /* In the mobile menu the line draws over each row's divider */
+  .nav__links a:not(.btn)::after {
+    bottom: -1px;
   }
 
   .nav__cta {
