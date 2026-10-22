@@ -183,7 +183,8 @@ ol {
   transition: transform 0.62s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
 }
 
-.bl__l:hover .bl__in {
+.bl__l:hover .bl__in,
+.bl__l.is-hot .bl__in {
   transform: translateY(-0.14em) rotate(var(--tilt));
   transition-duration: 0.42s, 0.2s;
   transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1), ease;
@@ -243,11 +244,13 @@ ol {
 }
 
 .nav__links a:not(.btn):hover::after,
+.nav__links a:not(.btn):active::after,
 .nav__links a.is-active::after {
   transform: scaleX(1);
 }
 
 .nav__links a:not(.btn):hover,
+.nav__links a:not(.btn):active,
 .nav__links a.is-active {
   color: var(--accent);
 }
@@ -1544,6 +1547,7 @@ ol {
 }
 
 .sk__item:hover .sk__icon,
+.sk__item:active .sk__icon,
 .sk__item.is-on .sk__icon {
   filter: none;
   transform: scale(1.12);
@@ -1831,20 +1835,104 @@ ol {
     padding-top: 0;
   }
 
-  /* Cards stack normally on small screens: a tall sticky card would hide its own lower half */
+  /* Phones: the same sticky stacking, as a tight deck. Cards keep their natural height; one that
+     is taller than the screen pins by its bottom edge (--fit-top, set in Showcase.jsx), so it is
+     always fully readable before the next card slides over it. The visual becomes a compact strip. */
+  .stack {
+    --peek: 12px;
+    --top: 80px;
+    gap: 20px;
+  }
+
   .stack__card {
-    position: relative;
-    top: auto;
+    top: min(calc(var(--top) + var(--i) * var(--peek)), var(--fit-top, 9999px));
     grid-template-columns: minmax(0, 1fr);
     height: auto;
     min-height: 0;
+    border-radius: 12px;
+  }
+
+  .stack__body {
+    overflow: visible;
   }
 
   .stack__visual {
     margin: 0;
     border-left: 0;
     border-top-left-radius: 0;
-    padding: 26px 18px;
+    padding: 12px;
+  }
+
+  .flow {
+    max-width: none;
+    border: 0;
+    background: transparent;
+  }
+
+  .flow__bar,
+  .flow__client,
+  .flow__protocols {
+    display: none;
+  }
+
+  .flow__body {
+    padding: 0;
+  }
+
+  .flow__nodes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px 0;
+  }
+
+  .flow__nodes li {
+    padding: 0;
+  }
+
+  .flow__nodes li:not(:last-child)::after {
+    content: '\203A';
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 6px;
+    background: none;
+    animation: none;
+    color: #ff7a8a;
+    font-weight: 600;
+  }
+
+  .flow__nodes span {
+    min-width: 0;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 11.5px;
+  }
+
+  .badge {
+    flex-direction: row;
+    gap: 14px;
+    padding: 12px 40px 12px 14px;
+    text-align: left;
+  }
+
+  .badge__ring {
+    width: 56px;
+    height: 56px;
+    border-width: 2px;
+    box-shadow: inset 0 0 0 4px var(--light);
+  }
+
+  .badge__ring svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .badge__ribbon {
+    top: 9px;
+    right: -38px;
+    font-size: 9px;
   }
 
   .hero__role {
@@ -2116,7 +2204,8 @@ ol {
   }
 
   .bl__in,
-  .bl__l:hover .bl__in {
+  .bl__l:hover .bl__in,
+  .bl__l.is-hot .bl__in {
     animation: none;
     transform: none;
   }

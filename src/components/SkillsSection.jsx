@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useInView } from 'framer-motion';
 import Reveal from './Reveal';
 import { SectionHead } from './Sections';
 import { Icon } from '../icons';
@@ -12,11 +13,35 @@ function Arrow() {
   );
 }
 
+const isTouch = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
+const reducedMotion =
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 export default function SkillsSection() {
   // A clicked category stays selected; hovering another one previews it.
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
-  const active = hovered || selected;
+  // Touch screens can't hover, so while the grid is on screen the categories take turns
+  // highlighting by themselves, until the visitor taps one.
+  const [auto, setAuto] = useState(null);
+  const [tapped, setTapped] = useState(false);
+  const gridRef = useRef(null);
+  const gridInView = useInView(gridRef, { margin: '-15% 0px -15% 0px' });
+  const active = hovered || selected || auto;
+
+  useEffect(() => {
+    if (!isTouch || reducedMotion || tapped || !gridInView) {
+      setAuto(null);
+      return;
+    }
+    let i = 0;
+    setAuto(skillCategories[0].id);
+    const timer = setInterval(() => {
+      i = (i + 1) % skillCategories.length;
+      setAuto(skillCategories[i].id);
+    }, 2200);
+    return () => clearInterval(timer);
+  }, [gridInView, tapped]);
 
   return (
     <section className="section section--light" id="skills">
@@ -50,11 +75,13 @@ export default function SkillsSection() {
                 type="button"
                 className={`sk__pill ${active === c.id ? 'is-active' : ''}`}
                 aria-pressed={selected === c.id}
-                onMouseEnter={() => setHovered(c.id)}
-                onMouseLeave={() => setHovered(null)}
-                onFocus={() => setHovered(c.id)}
-                onBlur={() => setHovered(null)}
-                onClick={() => setSelected((s) => (s === c.id ? null : c.id))}
+                // Only a real mouse previews on hover; a tap would otherwise leave a stuck "hover".
+                onPointerEnter={(e) => e.pointerType === 'mouse' && setHovered(c.id)}
+                onPointerLeave={(e) => e.pointerType === 'mouse' && setHovered(null)}
+                onClick={() => {
+                  setTapped(true);
+                  setSelected((s) => (s === c.id ? null : c.id));
+                }}
               >
                 {c.label}
               </button>
@@ -64,17 +91,19 @@ export default function SkillsSection() {
           <Reveal className="sk__label">
             <span className="sk__heading">Work Stack <Arrow /></span>
           </Reveal>
-          <Reveal delay={0.1} className={`sk__grid ${active ? 'has-active' : ''}`} as="ul">
-            {workStack.map(([icon, label, cats]) => {
-              const on = active && cats.includes(active);
-              return (
-                <li key={label} className={`sk__item ${on ? 'is-on' : ''}`}>
-                  <Icon name={icon} size={20} className="sk__icon" />
-                  <span className="sk__name">{label}</span>
-                </li>
-              );
-            })}
-          </Reveal>
+          <div ref={gridRef}>
+            <Reveal delay={0.1} className={`sk__grid ${active ? 'has-active' : ''}`} as="ul">
+              {workStack.map(([icon, label, cats]) => {
+                const on = active && cats.includes(active);
+                return (
+                  <li key={label} className={`sk__item ${on ? 'is-on' : ''}`}>
+                    <Icon name={icon} size={20} className="sk__icon" />
+                    <span className="sk__name">{label}</span>
+                  </li>
+                );
+              })}
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

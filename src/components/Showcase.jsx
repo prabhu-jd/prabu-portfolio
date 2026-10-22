@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { SectionHead } from './Sections';
 import Reveal from './Reveal';
@@ -13,9 +14,28 @@ function Chevron() {
 }
 
 // Sticky card: each one pins a little lower than the last, so earlier titles stay visible as tabs.
+// --fit-top is the highest pin position at which the whole card still fits on screen; on phones,
+// where a card can be taller than the screen, CSS pins it by its bottom edge instead of its top,
+// so its full content scrolls past before the next card slides over it.
 function StackCard({ index, children }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const card = ref.current;
+    const update = () => card.style.setProperty('--fit-top', `${window.innerHeight - card.offsetHeight - 12}px`);
+    update();
+    const observer = new ResizeObserver(update);
+    observer.observe(card);
+    window.addEventListener('resize', update);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', update);
+    };
+  }, []);
+
   return (
     <motion.article
+      ref={ref}
       className="stack__card"
       style={{ '--i': index }}
       initial={{ opacity: 0, y: 40 }}

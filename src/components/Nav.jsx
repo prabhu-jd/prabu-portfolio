@@ -59,7 +59,11 @@ export default function Nav() {
               key={l.id}
               href={`#${l.id}`}
               className={active === l.id ? 'is-active' : ''}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                // Highlight the tapped link right away; touch screens have no hover to show it.
+                setActive(l.id);
+                setOpen(false);
+              }}
             >
               {l.label}
             </a>
