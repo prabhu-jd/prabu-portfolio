@@ -167,7 +167,7 @@ export function About() {
             />
             <div className="about__badge">
               <span className="about__big">6</span>
-              <span className="about__big-label">Enterprise clients in healthcare, banking, utilities and travel</span>
+              <span className="about__big-label">Enterprise clients in healthcare, banking, telecom and travel</span>
             </div>
           </Reveal>
 
