@@ -81,7 +81,7 @@ export function Hero() {
             <a className="btn btn--outline" href="#experience">View Experience</a>
           </motion.div>
           <motion.p className="hero__clients" {...fadeUp(0.55)}>
-            <span>Clients I've delivered for</span> CVS Health · Fiserv · Standard Chartered · DEWA · Stryker
+            <span>Clients I've delivered for</span> CVS Health · Fiserv · Standard Chartered · DEWA · VFS Tasheel · Stryker
           </motion.p>
         </div>
 
@@ -135,10 +135,10 @@ function EngineerCard() {
           <span className="k">var</span> engineer = <span className="k">new</span> <span className="t">Engineer</span>(
           {'\n'}    name:       <span className="s">"Prabu A"</span>,
           {'\n'}    role:       <span className="s">"Lead Java Full Stack Developer"</span>,
-          {'\n'}    experience: <span className="s">"10+ years"</span>,
           {'\n'}    stack:      <span className="t">List</span>.of(<span className="s">"Java"</span>, <span className="s">"Spring Boot"</span>, <span className="s">"Angular"</span>, <span className="s">"Kafka"</span>),
           {'\n'}    cloud:      <span className="t">List</span>.of(<span className="s">"AWS"</span>, <span className="s">"GCP"</span>),
           {'\n'}    focus:      <span className="s">"Microservices + Integration"</span>,
+          {'\n'}    leads:      <span className="s">"Solution design, code reviews"</span>,
           {'\n'}    available:  <span className="k">true</span>
           {'\n'});
         </code>
@@ -166,14 +166,14 @@ export function About() {
               loading="lazy"
             />
             <div className="about__badge">
-              <span className="about__big">10<span className="dot">+</span></span>
-              <span className="about__big-label">Years building enterprise software</span>
+              <span className="about__big">6</span>
+              <span className="about__big-label">Enterprise clients in healthcare, fintech and government</span>
             </div>
           </Reveal>
 
           <div className="about__body">
             <Reveal as="h3" className="about__lead">
-              Lead Java Full Stack Developer with 10+ years building systems for healthcare and financial{' '}
+              Lead Java Full Stack Developer building systems for healthcare and financial{' '}
               <span className="accent">services.</span>
             </Reveal>
             {summary.map((p, i) => (

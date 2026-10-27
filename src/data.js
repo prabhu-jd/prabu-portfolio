@@ -15,7 +15,7 @@ export const stats = [
   { value: '10+', label: 'Years building enterprise software' },
   { value: '4', label: 'Professional certifications' },
   { value: '2', label: 'Cloud platforms in production' },
-  { value: '5', label: "Companies I've delivered for" },
+  { value: '6', label: 'Enterprise clients delivered for' },
 ];
 
 // "What I do" focus areas: [icon, title, text]
@@ -48,10 +48,11 @@ export const experience = [
     client: 'CVS Health · RxLink',
     stack: ['Java 21', 'Spring Boot', 'Angular', 'MongoDB', 'GCP (GKE)', 'Argo CD', 'Grafana'],
     points: [
-      'Developing RxLink, a Java and Spring Boot microservices integration platform for a Fortune 10 U.S. pharmacy benefit manager, connecting external pharmacies, adjudication systems and third-party vendors.',
-      'Implementing and maintaining multi-protocol integrations over TCP, REST and SOAP for reliable, secure exchange of high-volume pharmacy transactions.',
-      'Designing scalable, resilient microservices for real-time transaction processing, improving interoperability, performance and maintainability.',
-      'Shipping through Argo CD (GitOps) to Google Kubernetes Engine, with Grafana dashboards and alerts on latency and error rates.',
+      "Migrated a Fortune 10 U.S. PBM's real-time pharmacy claim processing from a legacy IBM platform to microservices.",
+      'Built 6+ Java 21 Spring Boot microservices that route claim transactions across TCP, REST and SOAP protocols.',
+      'Achieved ~2 ms end-to-end latency under high concurrent load using multithreading, thread pools and async processing.',
+      'Integrated 10+ external pharmacy, adjudication and vendor systems, processing millions of transactions per month.',
+      'Automated deployments to GKE with Argo CD (GitOps); built Grafana dashboards and alerts for latency and error rates.',
     ],
   },
   {
@@ -59,12 +60,15 @@ export const experience = [
     company: 'Virtusa Consulting Services',
     period: 'Dec 2021 – Dec 2025',
     client: 'Fiserv · Payment360',
-    stack: ['Java 17', 'Spring Boot 3', 'Confluent Kafka', 'Resilience4j', 'AWS EKS', 'Terraform'],
+    stack: ['Java 17', 'Spring Boot 3', 'Confluent Kafka', 'Redis', 'PingID SSO', 'OAuth 2.0', 'AWS EKS'],
     points: [
-      'Led a four-engineer team building Payment360 for Fiserv: 8+ payment microservices for bill pay and card controls used by bank and credit-union customers.',
-      'Built resilient services with Resilience4j circuit breakers, retries and rate limiters, holding a 99.9% availability SLA through downstream outages.',
-      'Designed event-driven workflows on Confluent Kafka processing 100K+ payment events a day with zero message loss.',
-      'Partnered with DevOps on GitLab CI/CD (SonarQube, Fortify, Docker) and Harness deployments to AWS EKS, cutting release cycles from about two weeks to about two days.',
+      'Led a 4-engineer team delivering 8+ Spring Boot microservices; owned solution design and code reviews.',
+      "Consolidated Fiserv's BillPay and TransferNow platforms into Payment360, a unified payments platform with a single login.",
+      'Designed data synchronization so every Payment360 transaction is reflected in both the BillPay and TransferNow databases.',
+      'Built event-driven service communication on Confluent Kafka, processing 100K+ events daily with zero message loss.',
+      'Secured authentication and APIs with PingID SSO, OAuth 2.0 and JWT; used Redis caching for frequently accessed data.',
+      'Maintained 99.9% availability during downstream outages with Resilience4j circuit breakers, retries and rate limiters.',
+      'Reduced release cycles from 2 weeks to 2 days with GitLab CI/CD (SonarQube, Fortify) and Harness deployments to AWS EKS.',
     ],
   },
   {
@@ -74,9 +78,7 @@ export const experience = [
     client: 'Standard Chartered · DEWA',
     stack: ['Spring Boot', 'Solace', 'Quartz', 'ShedLock', 'Angular 8', 'Oracle'],
     points: [
-      "Built Solace publish/subscribe modules for Standard Chartered's dialer, automating 50+ daily file exchanges with the CACS collections system.",
-      'Implemented cluster-safe scheduled jobs with Quartz and ShedLock, so no job ever ran twice across nodes.',
-      "Designed REST APIs and Angular 8 components for DEWA's voice-driven post-call customer survey.",
+      "Built Solace messaging for Standard Chartered's dialer, and REST APIs and Angular screens for DEWA's voice survey.",
     ],
   },
   {
@@ -86,9 +88,7 @@ export const experience = [
     client: 'VFS Tasheel · Onevasco',
     stack: ['Java 11', 'Spring Boot', 'Spring Security', 'Angular 8', 'MySQL', 'AWS'],
     points: [
-      "Built full-stack modules for Onevasco, turning VFS Tasheel's static service site into an online visa application platform with 10+ services.",
-      'Implemented secure REST APIs with Spring Security and back-office workflows for the operations team, hosted on AWS.',
-      'Resolved production issues and shipped peer-reviewed code across the front end and back end.',
+      "Built full-stack modules for Onevasco, moving VFS Tasheel's 10+ visa services online.",
     ],
   },
   {
@@ -98,9 +98,7 @@ export const experience = [
     client: 'Stryker · RippleCare',
     stack: ['Spring MVC', 'Thymeleaf', 'JSF', 'jQuery', 'Tomcat'],
     points: [
-      "Built web modules for RippleCare, Stryker's patient engagement platform that coaches patients through pre- and post-surgical care plans.",
-      'Translated functional requirements into Spring MVC, Thymeleaf and JSF components, delivering 5+ care-plan modules.',
-      'Kept quality high through peer code reviews and collaborative testing.',
+      "Delivered 5+ care-plan modules for RippleCare, Stryker's patient engagement platform.",
     ],
   },
 ];
@@ -112,10 +110,10 @@ export const projects = [
     client: 'CVS Health',
     category: 'Pharmacy claims integration platform',
     period: '2026 – Present',
-    text: 'Lets pharmacies, claim adjudication systems and vendors exchange high-volume pharmacy transactions in real time. I build its Java 21 microservices and multi-protocol integrations.',
+    text: 'Real-time pharmacy claim processing, migrated from a legacy IBM platform to Java 21 microservices. It routes transactions between pharmacies, adjudication systems and vendors across several protocols.',
     points: [
-      '6+ Java 21 / Spring Boot microservices handling live pharmacy transactions',
-      '10+ external systems connected over TCP, REST and SOAP',
+      '~2 ms end-to-end latency with multithreading, thread pools and async processing',
+      '6+ Java 21 / Spring Boot microservices; 10+ external systems over TCP, REST and SOAP',
       'GitOps releases to GKE with Argo CD, watched through Grafana',
     ],
     tags: [['java', 'Java 21'], ['springboot', 'Spring Boot'], ['mongodb', 'MongoDB'], ['gcp', 'GKE'], ['argo', 'Argo CD']],
@@ -125,17 +123,17 @@ export const projects = [
   {
     name: 'Payment360',
     client: 'Fiserv',
-    category: 'Digital payments hub for banks',
+    category: 'Unified payments platform',
     period: '2023 – 2025',
-    text: 'Lets bank and credit-union customers pay bills, control cards and see every obligation in one place. I led the four-engineer team building its payment microservices.',
+    text: "Brings Fiserv's BillPay and TransferNow platforms together behind a single login, with every transaction kept in both platforms' databases. I led the four-engineer team and owned the solution design.",
     points: [
-      '8+ payment microservices for bill pay and card controls',
-      '99.9% availability, protected by circuit breakers and retries',
+      'Single sign-on with PingID SSO and OAuth 2.0; Redis caching',
       '100K+ Kafka events a day with zero message loss',
+      '99.9% availability, protected by circuit breakers and retries',
     ],
-    tags: [['java', 'Java 17'], ['springboot', 'Spring Boot 3'], ['kafka', 'Kafka'], ['resilience', 'Resilience4j'], ['eks', 'AWS EKS'], ['terraform', 'Terraform']],
-    flow: ['Bank Apps', 'Payment APIs', 'Kafka Events', 'Billers & Cards'],
-    protocols: ['REST', 'Kafka', 'AWS EKS'],
+    tags: [['java', 'Java 17'], ['springboot', 'Spring Boot 3'], ['kafka', 'Kafka'], ['redis', 'Redis'], ['jwt', 'OAuth 2.0'], ['eks', 'AWS EKS']],
+    flow: ['Single Login', 'Payment360 Services', 'Kafka Events', 'BillPay & TransferNow'],
+    protocols: ['Kafka', 'PingID SSO', 'Redis'],
   },
   {
     name: 'Dialer – CACS Integration',
