@@ -153,21 +153,6 @@ export const projects = [
     protocols: ['Solace', 'Quartz', 'ShedLock'],
   },
   {
-    name: 'Onevasco',
-    client: 'VFS Tasheel',
-    category: 'Online visa application platform',
-    period: '2019 – 2020',
-    text: 'A static service website rebuilt as a platform where customers apply online for visa services, with back-office workflows for the business team. I worked full stack, from Angular screens to secured Spring Boot APIs.',
-    points: [
-      '10+ visa services moved online',
-      'Secure REST APIs built with Spring Security',
-      'Back-office workflows for the operations team, hosted on AWS',
-    ],
-    tags: [['java', 'Java 11'], ['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL'], ['aws', 'AWS']],
-    flow: ['Applicants', 'Angular UI', 'Spring Boot API', 'MySQL'],
-    protocols: ['REST', 'Spring Security', 'AWS'],
-  },
-  {
     name: 'Voice Survey',
     client: 'DEWA',
     category: 'Voice-driven customer feedback',
@@ -181,6 +166,21 @@ export const projects = [
     tags: [['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL']],
     flow: ['Call Ends', 'Survey Prompt', 'Voice Survey', 'Feedback'],
     protocols: ['REST', 'Angular'],
+  },
+  {
+    name: 'Onevasco',
+    client: 'VFS Tasheel',
+    category: 'Online visa application platform',
+    period: '2019 – 2020',
+    text: 'A static service website rebuilt as a platform where customers apply online for visa services, with back-office workflows for the business team. I worked full stack, from Angular screens to secured Spring Boot APIs.',
+    points: [
+      '10+ visa services moved online',
+      'Secure REST APIs built with Spring Security',
+      'Back-office workflows for the operations team, hosted on AWS',
+    ],
+    tags: [['java', 'Java 11'], ['springboot', 'Spring Boot'], ['angular', 'Angular 8'], ['mysql', 'MySQL'], ['aws', 'AWS']],
+    flow: ['Applicants', 'Angular UI', 'Spring Boot API', 'MySQL'],
+    protocols: ['REST', 'Spring Security', 'AWS'],
   },
   {
     name: 'RippleCare',
